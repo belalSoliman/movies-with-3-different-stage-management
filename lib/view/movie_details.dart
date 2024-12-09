@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies/view/widget/cached_image.dart';
 import 'package:movies/view/widget/favoirt_btn.dart';
 import 'package:movies/view/widget/geners_movies.dart';
 

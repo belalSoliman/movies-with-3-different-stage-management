@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/constants/my_theme_data.dart';
 import 'package:movies/view/movies_screen.dart';
+import 'package:movies/view/splash_screen.dart';
 
 void main() {
   runApp(ScreenUtilInit(
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Movies App',
       theme: MyThemeData.themeDataLight,
-      home: const MoviesScreen(),
+      home: const SplashScreen(),
     );
   }
 }
