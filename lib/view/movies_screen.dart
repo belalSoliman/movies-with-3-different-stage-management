@@ -9,13 +9,20 @@ class MoviesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: SafeArea(
             child: SingleChildScrollView(
                 child: Column(
       children: [
-        CustomAppbar(),
-        MoviesItem(),
+        const CustomAppbar(),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 100,
+          itemBuilder: (context, index) {
+            return const MoviesItem();
+          },
+        ),
       ],
     ))));
   }
