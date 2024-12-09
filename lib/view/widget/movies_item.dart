@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/utils/app_padding.dart';
 import 'package:movies/view/widget/cached_image.dart';
+import 'package:movies/view/widget/favoirt_btn.dart';
 import 'package:movies/view/widget/geners_movies.dart';
 
 class MoviesItem extends StatelessWidget {
@@ -12,7 +13,6 @@ class MoviesItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(AppMargin.moviesItemMargin.w),
       width: double.infinity,
-      color: Colors.grey.shade100,
       child: IntrinsicWidth(
         child: Row(
           children: [
@@ -50,18 +50,33 @@ class MoviesItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Text(
-                    'Action, Adventure, Thriller',
-                    maxLines: 1,
-                    overflow: TextOverflow.clip,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      color: Colors.grey,
-                    ),
-                  ),
                   const GenersMovies(
                     genres: ['Action', 'Adventure', 'Thriller'],
                   ),
+                  SizedBox(
+                    height: AppPadding.paddingSmall.w,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.access_time,
+                        color: Colors.grey,
+                        weight: 10.w,
+                      ),
+                      SizedBox(
+                        width: AppPadding.paddingSmall.w,
+                      ),
+                      Text(
+                        "12/3/2021",
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const Spacer(),
+                      const FavoirtBtn(),
+                    ],
+                  )
                 ],
               ),
             )

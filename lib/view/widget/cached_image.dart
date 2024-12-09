@@ -12,13 +12,11 @@ class CashedImage extends StatelessWidget {
           'https://posterhouse.org/wp-content/uploads/2021/05/silence_of_the_lambs_0.jpg',
       imageBuilder: (context, imageProvider) => Container(
         width: 100.w,
-        height: 100.h,
+        height: 150.h,
         decoration: BoxDecoration(
-          color: Colors.grey.shade300,
-          borderRadius: BorderRadius.circular(10.r),
           image: DecorationImage(
             image: imageProvider,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
         ),
       ),
