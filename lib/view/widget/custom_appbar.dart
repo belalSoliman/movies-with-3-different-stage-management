@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/utils/app_padding.dart';
 import 'package:movies/utils/text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies/view/widget/favoirt_btn.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key});
@@ -17,13 +18,7 @@ class CustomAppbar extends StatelessWidget {
             style: TextStyles.title,
           ),
           const Spacer(),
-          IconButton(
-            icon: const Icon(
-              Icons.favorite,
-              color: Colors.red,
-            ),
-            onPressed: () {},
-          ),
+          const FavoirtBtn(),
           IconButton(
             icon: const Icon(Icons.sunny),
             onPressed: () {},

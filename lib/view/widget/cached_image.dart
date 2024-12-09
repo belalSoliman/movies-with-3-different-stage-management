@@ -22,6 +22,15 @@ class CashedImage extends StatelessWidget {
           ),
         ),
       ),
+      placeholder: (context, url) => Container(
+        width: 100.w,
+        height: 100.h,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade300,
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+      ),
+      errorWidget: (context, url, error) => const Icon(Icons.error),
     );
   }
 }
