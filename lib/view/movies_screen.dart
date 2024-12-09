@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:movies/view/widget/custom_appbar.dart';
+import 'package:movies/view/widget/movies_item.dart';
 
 class MoviesScreen extends StatelessWidget {
   const MoviesScreen({super.key});
@@ -14,6 +15,7 @@ class MoviesScreen extends StatelessWidget {
                 child: Column(
       children: [
         CustomAppbar(),
+        MoviesItem(),
       ],
     ))));
   }

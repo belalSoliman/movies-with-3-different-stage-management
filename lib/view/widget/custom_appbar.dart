@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/utils/app_padding.dart';
 import 'package:movies/utils/text_styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key});
@@ -8,10 +9,10 @@ class CustomAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(AppPadding.paddingSmall),
+      padding: EdgeInsets.all(AppPadding.paddingSmall.w),
       child: Row(
         children: [
-          const Text(
+          Text(
             "popular movies",
             style: TextStyles.title,
           ),

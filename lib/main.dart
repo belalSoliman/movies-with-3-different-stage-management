@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/constants/my_theme_data.dart';
 import 'package:movies/view/movies_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ScreenUtilInit(
+    designSize: const Size(360, 640),
+    builder: (context, child) => MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
