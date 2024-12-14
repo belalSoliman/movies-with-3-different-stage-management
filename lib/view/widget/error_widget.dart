@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class ErrorWidgets extends StatelessWidget {
   const ErrorWidgets({super.key, required this.onRetry});
 
-  @override
   final Function onRetry;
+  @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
