@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies/service/init_getit.dart';
+import 'package:movies/service/navigation_service/navigation_sevice.dart';
 import 'package:movies/utils/app_padding.dart';
 import 'package:movies/view/movie_details.dart';
 import 'package:movies/view/widget/cached_image.dart';
@@ -13,12 +15,7 @@ class MoviesItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MovieDetails(),
-          ),
-        );
+        getIt<NavigationSevice>().navigate(const MovieDetails());
       },
       child: Container(
         margin: EdgeInsets.all(AppMargin.moviesItemMargin.w),
