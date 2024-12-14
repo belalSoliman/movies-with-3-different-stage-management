@@ -47,8 +47,8 @@ class MovieDetails extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Spacer(),
-                                  FavoirtBtn(),
+                                  const Spacer(),
+                                  const FavoirtBtn(),
                                 ],
                               ),
                               Row(
