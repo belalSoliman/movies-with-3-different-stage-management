@@ -7,9 +7,17 @@ import 'package:movies/service/navigation_service/navigation_sevice.dart';
 import 'package:movies/view/movies_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    print(details.exceptionAsString());
+  };
+
   setUpLocator();
-  await dotenv.load(fileName: "assets/.env");
-  (ScreenUtilInit(
+
+  await dotenv.load(fileName: 'assets/.env');
+
+  runApp(ScreenUtilInit(
     designSize: const Size(360, 640),
     builder: (context, child) => const MyApp(),
   ));

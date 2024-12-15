@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.movies"
+    namespace = "com.example.sushi"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
