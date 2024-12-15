@@ -49,23 +49,21 @@ class MoviesModle {
     );
   }
   Map<String, dynamic> toJson() {
-   return{
-'adult': this.adult,
-    'backdrop_path' : this.backdropPath,
-    'genre_ids' : this.genreIds,
-    'id' : this.id,
-    'origin_country' : this.originCountry,
-    'original_language' : this.originalLanguage,
-    'original_name' : this.originalName,
-    'overview' : this.overview,
-    'popularity' : this.popularity,
-    'poster_path' : this.posterPath,
-    'first_air_date' : this.firstAirDate,
-    'name' : this.name,
-    'vote_average' : this.voteAverage,
-    'vote_count' : this.voteCount,
-  
-   }
-    
+    return {
+      'adult': adult,
+      'backdrop_path': backdropPath,
+      'genre_ids': genreIds,
+      'id': id,
+      'origin_country': originCountry,
+      'original_language': originalLanguage,
+      'original_name': originalName,
+      'overview': overview,
+      'popularity': popularity,
+      'poster_path': posterPath,
+      'first_air_date': firstAirDate,
+      'name': name,
+      'vote_average': voteAverage,
+      'vote_count': voteCount,
+    };
   }
 }
