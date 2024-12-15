@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/constants/my_theme_data.dart';
 import 'package:movies/service/init_getit.dart';
 import 'package:movies/service/navigation_service/navigation_sevice.dart';
 import 'package:movies/view/movies_screen.dart';
 
-void main() {
+void main() async {
   setUpLocator();
-  runApp(ScreenUtilInit(
+  await dotenv.load(fileName: "assets/.env");
+  (ScreenUtilInit(
     designSize: const Size(360, 640),
     builder: (context, child) => const MyApp(),
   ));
