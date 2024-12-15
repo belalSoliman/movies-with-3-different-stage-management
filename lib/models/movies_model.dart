@@ -48,4 +48,24 @@ class MoviesModle {
       voteCount: json['vote_count'],
     );
   }
+  Map<String, dynamic> toJson() {
+   return{
+'adult': this.adult,
+    'backdrop_path' : this.backdropPath,
+    'genre_ids' : this.genreIds,
+    'id' : this.id,
+    'origin_country' : this.originCountry,
+    'original_language' : this.originalLanguage,
+    'original_name' : this.originalName,
+    'overview' : this.overview,
+    'popularity' : this.popularity,
+    'poster_path' : this.posterPath,
+    'first_air_date' : this.firstAirDate,
+    'name' : this.name,
+    'vote_average' : this.voteAverage,
+    'vote_count' : this.voteCount,
+  
+   }
+    
+  }
 }
