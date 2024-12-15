@@ -9,7 +9,7 @@ class ApiService {
     final url =
         Uri.parse("${ApiConst.baseUrl}/movie/popular?language=en-US&page=1");
 
-    final response = await http.get(url);
+    final response = await http.get(url, headers: ApiConst.headers);
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       log(data);
