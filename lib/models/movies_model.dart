@@ -30,24 +30,32 @@ class MoviesModle {
     this.voteAverage,
     this.voteCount,
   });
+
   factory MoviesModle.fromJson(Map<String, dynamic> json) {
     return MoviesModle(
       adult: json['adult'],
       backdropPath: json['backdrop_path'],
-      genreIds: json['genre_ids'],
+      genreIds: (json['genre_ids'] as List<dynamic>?)
+              ?.map((e) => e as int)
+              .toList() ??
+          [],
       id: json['id'],
-      originCountry: json['origin_country'].cast<String>(),
+      originCountry: (json['origin_country'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
       originalLanguage: json['original_language'],
       originalName: json['original_name'],
       overview: json['overview'],
       popularity: json['popularity'],
       posterPath: json['poster_path'],
-      firstAirDate: json['first_air_date'],
-      name: json['name'],
+      firstAirDate: json['release_date'],
+      name: json['title'],
       voteAverage: json['vote_average'],
       voteCount: json['vote_count'],
     );
   }
+
   Map<String, dynamic> toJson() {
     return {
       'adult': adult,

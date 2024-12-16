@@ -3,20 +3,21 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CashedImage extends StatelessWidget {
-  const CashedImage({super.key});
+  final String? imageurl;
+  const CashedImage({super.key, required this.imageurl});
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl:
-          'https://posterhouse.org/wp-content/uploads/2021/05/silence_of_the_lambs_0.jpg',
+      imageUrl: imageurl ??
+          "https://pixabay.com/photos/see-no-evil-hear-no-evil-3444212/",
       imageBuilder: (context, imageProvider) => Container(
         width: 100.w,
-        height: 150.h,
+        height: 100.h,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: imageProvider,
-            fit: BoxFit.contain,
+            fit: BoxFit.cover,
           ),
         ),
       ),

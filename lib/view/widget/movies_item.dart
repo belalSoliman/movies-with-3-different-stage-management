@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies/models/movies_model.dart';
 import 'package:movies/service/init_getit.dart';
 import 'package:movies/service/navigation_service/navigation_sevice.dart';
 import 'package:movies/utils/app_padding.dart';
@@ -9,10 +10,13 @@ import 'package:movies/view/widget/favoirt_btn.dart';
 import 'package:movies/view/widget/geners_movies.dart';
 
 class MoviesItem extends StatelessWidget {
-  const MoviesItem({super.key});
+  final MoviesModle movies;
+  const MoviesItem({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
+    final String imageUrl =
+        'https://image.tmdb.org/t/p/w500${movies.backdropPath}';
     return InkWell(
       onTap: () {
         getIt<NavigationSevice>().navigate(const MovieDetails());
@@ -23,7 +27,9 @@ class MoviesItem extends StatelessWidget {
         child: IntrinsicWidth(
           child: Row(
             children: [
-              const CashedImage(),
+              CashedImage(
+                imageurl: imageUrl,
+              ),
               SizedBox(
                 width: AppPadding.padding.w,
               ),
@@ -32,7 +38,7 @@ class MoviesItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Deadpool & Wolverine',
+                      movies.name ?? "no name",
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
@@ -49,7 +55,7 @@ class MoviesItem extends StatelessWidget {
                           width: AppPadding.paddingSmall.w,
                         ),
                         Text(
-                          '8.5/10',
+                          "${movies.voteAverage}",
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Colors.grey,
@@ -74,7 +80,7 @@ class MoviesItem extends StatelessWidget {
                           width: AppPadding.paddingSmall.w,
                         ),
                         Text(
-                          "12/3/2021",
+                          "${movies.firstAirDate}",
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Colors.grey,
