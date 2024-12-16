@@ -14,7 +14,7 @@ class FavoirtBtn extends StatelessWidget {
       ),
       onPressed: () async {
         try {
-          await getIt<ApiService>().fetchMovie();
+          await getIt<ApiService>().fetchgener();
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text('Movie fetched successfully'),

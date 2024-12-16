@@ -66,4 +66,9 @@ class MoviesModle {
       'vote_count': voteCount,
     };
   }
+
+  @override
+  String toString() {
+    return 'MoviesModle(adult: $adult, backdropPath: $backdropPath, genreIds: $genreIds, id: $id, originCountry: $originCountry, originalLanguage: $originalLanguage, originalName: $originalName, overview: $overview, popularity: $popularity, posterPath: $posterPath, firstAirDate: $firstAirDate, name: $name, voteAverage: $voteAverage, voteCount: $voteCount)';
+  }
 }
