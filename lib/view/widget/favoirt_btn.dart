@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/service/api_service.dart';
 import 'package:movies/service/init_getit.dart';
-import 'package:movies/view/movie_details.dart';
 
 class FavoirtBtn extends StatelessWidget {
   const FavoirtBtn({super.key});
