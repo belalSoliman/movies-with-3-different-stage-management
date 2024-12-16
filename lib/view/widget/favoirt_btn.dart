@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movies/service/api_service.dart';
+import 'package:movies/service/init_getit.dart';
+import 'package:movies/view/movie_details.dart';
 
 class FavoirtBtn extends StatelessWidget {
   const FavoirtBtn({super.key});
@@ -10,7 +13,21 @@ class FavoirtBtn extends StatelessWidget {
         Icons.favorite,
         color: Colors.red,
       ),
-      onPressed: () {},
+      onPressed: () async {
+        try {
+          await getIt<ApiService>().fetchMovie();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Movie fetched successfully'),
+              backgroundColor: Colors.white,
+            ),
+          );
+        } catch (e) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error fetching movie: $e')),
+          );
+        }
+      },
     );
   }
 }
