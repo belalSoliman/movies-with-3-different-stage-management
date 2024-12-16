@@ -10,7 +10,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
-    print(details.exceptionAsString());
   };
 
   setUpLocator();

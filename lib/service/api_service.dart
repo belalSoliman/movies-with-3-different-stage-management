@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:movies/constants/api_const.dart';
 import 'package:movies/models/geners_model.dart';
