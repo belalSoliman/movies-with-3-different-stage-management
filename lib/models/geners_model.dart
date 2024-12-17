@@ -1,10 +1,18 @@
 class Genres {
-  int? id;
-  String? name;
+  final int id;
+  final String name;
 
-  Genres({this.id, this.name});
+  Genres({required this.id, required this.name});
 
   factory Genres.fromJson(Map<String, dynamic> json) {
-    return Genres(id: json['id'], name: json['name']);
+    return Genres(
+      id: json['id'],
+      name: json['name'],
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Genres{id: $id, name: $name}';
   }
 }

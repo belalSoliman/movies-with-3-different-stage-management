@@ -65,8 +65,8 @@ class MoviesItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const GenersMovies(
-                      genres: ['Action', 'Adventure', 'Thriller'],
+                    GenersMovies(
+                      genres: movies,
                     ),
                     SizedBox(
                       height: AppPadding.paddingSmall.w,

@@ -77,8 +77,8 @@ class MovieDetails extends StatelessWidget {
                               SizedBox(
                                 height: 10.h,
                               ),
-                              const GenersMovies(
-                                genres: ['Action', 'Adventure', 'Thriller'],
+                              GenersMovies(
+                                genres: modle,
                               ),
                               Text(
                                 '${modle.overview}',

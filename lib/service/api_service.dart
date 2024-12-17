@@ -20,14 +20,17 @@ class ApiService {
   }
 
   Future<List<Genres>> fetchgener() async {
-    final url = Uri.parse("${ApiConst.baseUrl}/genre/movie/list?language=en");
+    final url =
+        Uri.parse("${ApiConst.baseUrl}/genre/movie/list?language=en-US");
 
-    final generResponse = await http.get(url, headers: ApiConst.headers);
-    if (generResponse.statusCode == 200) {
-      final data = jsonDecode(generResponse.body);
-      return List.from(data['genres'].map((ele) => Genres.fromJson(ele)));
+    final response = await http.get(url, headers: ApiConst.headers);
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return List<Genres>.from(
+          data['genres'].map((genre) => Genres.fromJson(genre)));
     } else {
-      throw Exception("faild");
+      throw Exception('Failed to fetch genres');
     }
   }
 }

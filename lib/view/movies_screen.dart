@@ -7,9 +7,9 @@ import 'package:movies/view/widget/custom_appbar.dart';
 import 'package:movies/view/widget/movies_item.dart';
 
 class MoviesScreen extends StatefulWidget {
-  final List<Genres> genrz;
-
-  const MoviesScreen({super.key, required this.genrz});
+  const MoviesScreen({
+    super.key,
+  });
 
   @override
   State<MoviesScreen> createState() => _MoviesScreenState();
