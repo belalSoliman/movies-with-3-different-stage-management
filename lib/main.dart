@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/constants/my_theme_data.dart';
 import 'package:movies/service/init_getit.dart';
 import 'package:movies/service/navigation_service/navigation_sevice.dart';
-import 'package:movies/view/movies_screen.dart';
 import 'package:movies/view/splash_screen.dart';
 
 void main() async {

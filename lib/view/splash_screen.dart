@@ -34,7 +34,6 @@ class _SplashScreenState extends State<SplashScreen> {
         getIt<NavigationSevice>().navigate(MoviesScreen(
           genrz: _genres,
         ));
-        print(_genres);
       });
     } catch (e) {
       throw Exception("dssd");

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:movies/models/geners_model.dart';
 import 'package:movies/models/movies_model.dart';
@@ -51,9 +49,11 @@ class _MoviesScreenState extends State<MoviesScreen> {
         _currentPage++;
       });
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to fetch movies')),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Failed to fetch movies')),
+        );
+      }
     } finally {
       setState(() {
         _isfetching = false;
