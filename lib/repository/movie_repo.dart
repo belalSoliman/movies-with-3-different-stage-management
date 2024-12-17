@@ -15,6 +15,5 @@ class MovieRepo {
   Future<void> fetchAndCacheGenres() async {
     final List<Genres> genres = await getIt<ApiService>().fetchgener();
     cachedGeners = genres;
-    print('Cached Genres: $cachedGeners');
   }
 }

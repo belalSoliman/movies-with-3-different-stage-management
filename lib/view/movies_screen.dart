@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies/models/geners_model.dart';
 import 'package:movies/models/movies_model.dart';
 import 'package:movies/service/api_service.dart';
 import 'package:movies/service/init_getit.dart';

@@ -12,12 +12,11 @@ class GenersMovies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Genres> genrs = GenrsUtlis.genersNames(genres.genreIds!);
-    print(genrs);
     return Wrap(
       spacing: 5.0.w,
       children: genrs.map((genre) {
         return Chip(
-          label: Text(genre.name ?? 'Unknown'),
+          label: Text(genre.name),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0.r),
             side: const BorderSide(color: Colors.grey),
