@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:movies/models/geners_model.dart';
 import 'package:movies/models/movies_model.dart';
 import 'package:movies/service/api_service.dart';
 import 'package:movies/service/init_getit.dart';
@@ -6,7 +9,9 @@ import 'package:movies/view/widget/custom_appbar.dart';
 import 'package:movies/view/widget/movies_item.dart';
 
 class MoviesScreen extends StatefulWidget {
-  const MoviesScreen({super.key});
+  final List<Genres> genrz;
+
+  const MoviesScreen({super.key, required this.genrz});
 
   @override
   State<MoviesScreen> createState() => _MoviesScreenState();
@@ -38,7 +43,6 @@ class _MoviesScreenState extends State<MoviesScreen> {
     setState(() {
       _isfetching = true;
     });
-    print('Fetching page: $_currentPage');
     try {
       final List<MoviesModle> movies =
           await getIt<ApiService>().fetchMovie(page: _currentPage);
