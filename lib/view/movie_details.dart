@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies/models/movies_model.dart';
 import 'package:movies/view/widget/favoirt_btn.dart';
 import 'package:movies/view/widget/geners_movies.dart';
 
 class MovieDetails extends StatelessWidget {
-  const MovieDetails({super.key});
+  const MovieDetails({super.key, required this.modle});
+  final MoviesModle modle;
 
   @override
   Widget build(BuildContext context) {
+    final String imageUrl =
+        'https://image.tmdb.org/t/p/w500${modle.backdropPath}';
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -16,8 +20,8 @@ class MovieDetails extends StatelessWidget {
               width: double.infinity,
               height: 300.h,
               child: Image.network(
-                'https://posterhouse.org/wp-content/uploads/2021/05/silence_of_the_lambs_0.jpg',
-                fit: BoxFit.fitWidth,
+                imageUrl,
+                fit: BoxFit.cover,
               ),
             ),
             SingleChildScrollView(
@@ -41,7 +45,7 @@ class MovieDetails extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    "Silence of the Lambs",
+                                    modle.name!,
                                     style: TextStyle(
                                       fontSize: 20.sp,
                                       fontWeight: FontWeight.bold,
@@ -62,7 +66,7 @@ class MovieDetails extends StatelessWidget {
                                     width: 10.w,
                                   ),
                                   Text(
-                                    '8.5/10',
+                                    '${modle.popularity}',
                                     style: TextStyle(
                                       fontSize: 14.sp,
                                       color: Colors.grey,
@@ -77,7 +81,7 @@ class MovieDetails extends StatelessWidget {
                                 genres: ['Action', 'Adventure', 'Thriller'],
                               ),
                               Text(
-                                'Director: Jonathan Demme' * 200,
+                                '${modle.overview}',
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
                                   fontSize: 14.sp,

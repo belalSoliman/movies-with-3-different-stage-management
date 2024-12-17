@@ -10,8 +10,8 @@ import 'package:movies/view/widget/favoirt_btn.dart';
 import 'package:movies/view/widget/geners_movies.dart';
 
 class MoviesItem extends StatelessWidget {
-  final MoviesModle movies;
   const MoviesItem({super.key, required this.movies});
+  final MoviesModle movies;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,9 @@ class MoviesItem extends StatelessWidget {
         'https://image.tmdb.org/t/p/w500${movies.backdropPath}';
     return InkWell(
       onTap: () {
-        getIt<NavigationSevice>().navigate(const MovieDetails());
+        getIt<NavigationSevice>().navigate(MovieDetails(
+          modle: movies,
+        ));
       },
       child: Container(
         margin: EdgeInsets.all(AppMargin.moviesItemMargin.w),
