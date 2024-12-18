@@ -1,11 +1,14 @@
 import 'package:get_it/get_it.dart';
-import 'package:movies/repository/movie_repo.dart';
-import 'package:movies/service/api_service.dart';
-import 'package:movies/service/navigation_service/navigation_sevice.dart';
+import 'package:movies/service/navigation_service.dart';
 
-final getIt = GetIt.instance;
-void setUpLocator() {
-  getIt.registerLazySingleton<NavigationSevice>(() => NavigationSevice());
+import '../repository/movies_repo.dart';
+import 'api_service.dart';
+
+GetIt getIt = GetIt.instance;
+
+void setupLocator() {
+  getIt.registerLazySingleton<NavigationService>(() => NavigationService());
   getIt.registerLazySingleton<ApiService>(() => ApiService());
-  getIt.registerLazySingleton<MovieRepo>(() => MovieRepo(getIt<ApiService>()));
+  getIt.registerLazySingleton<MoviesRepository>(
+      () => MoviesRepository(getIt<ApiService>()));
 }

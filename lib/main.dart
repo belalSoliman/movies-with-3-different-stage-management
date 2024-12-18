@@ -1,37 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies/constants/my_theme_data.dart';
-import 'package:movies/service/init_getit.dart';
-import 'package:movies/service/navigation_service/navigation_sevice.dart';
-import 'package:movies/view/splash_screen.dart';
 
-void main() async {
+import 'constants/my_theme_data.dart';
+import 'screens/movies_screen.dart';
+import 'service/init_getit.dart';
+import 'service/navigation_service.dart';
+
+void main() {
+  setupLocator(); // Initialize GetIt
   WidgetsFlutterBinding.ensureInitialized();
-  FlutterError.onError = (FlutterErrorDetails details) {
-    FlutterError.presentError(details);
-  };
-
-  setUpLocator();
-
-  await dotenv.load(fileName: 'assets/.env');
-
-  runApp(ScreenUtilInit(
-    designSize: const Size(360, 640),
-    builder: (context, child) => const MyApp(),
-  ));
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    // DeviceOrientation.landscapeLeft,
+    // DeviceOrientation.landscapeRight,
+  ]).then((_) async {
+    await dotenv.load(fileName: "assets/.env");
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: getIt<NavigationSevice>().navigatorKey,
+      navigatorKey: getIt<NavigationService>().navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Movies App',
-      theme: MyThemeData.themeDataLight,
-      home: const SplashScreen(),
+      theme: MyThemeData.lightTheme,
+      home: const MoviesScreen(),
+      // const SplashScreen(), //const MovieDetailsScreen(), //const FavoritesScreen(), //const MoviesScreen(),
     );
   }
 }
