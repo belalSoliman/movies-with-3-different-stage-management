@@ -35,9 +35,11 @@ class _SplashScreenState extends State<SplashScreen> {
       setState(() {
         _isfetching = false;
       });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to fetch genres')),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Failed to fetch genres')),
+        );
+      }
     }
   }
 
