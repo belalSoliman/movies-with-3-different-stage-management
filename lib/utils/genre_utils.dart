@@ -5,8 +5,9 @@ import '../service/init_getit.dart';
 
 class GenreUtils {
   static List<MoviesGenre> movieGenresNames(List<int> genreIds) {
+    // ignore: unused_local_variable
     final moviesRepository = getIt<MoviesRepository>();
-    final cachedGenres = []; //TODO: We need to get the correct cachedGenres
+    final cachedGenres = [];
     List<MoviesGenre> genresNames = [];
     for (var genreId in genreIds) {
       var genre = cachedGenres.firstWhere(
