@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:movies/constants/my_app_constants.dart';
 import 'package:movies/models/movies_model.dart';
 import 'package:movies/widgets/movies/favorite_btn.dart';
 import 'package:provider/provider.dart';
@@ -46,7 +45,7 @@ class MovieDetailsScreen extends StatelessWidget {
                         child: Material(
                           borderRadius: BorderRadius.circular(20),
                           child: Padding(
-                            padding: EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.all(16.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
