@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:movies/models/movies_genre.dart';
+import 'package:movies/models/movies_model.dart';
 
 import '../../utils/genre_utils.dart';
 
 class GenresListWidget extends StatelessWidget {
-  const GenresListWidget({
-    super.key,
-    // required this.movieModel
-  });
-  // final MovieModel movieModel;
+  const GenresListWidget({super.key, required this.movieModel});
+  final MovieModel movieModel;
   @override
   Widget build(BuildContext context) {
-    List<MoviesGenre> moviesGenre = GenreUtils.movieGenresNames([]
-        // movieModel.genreIds
-        );
+    List<MoviesGenre> moviesGenre =
+        GenreUtils.movieGenresNames(movieModel.genreIds, context);
     return Wrap(
       children: List.generate(
         moviesGenre.length,

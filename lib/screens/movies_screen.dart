@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:movies/view_models/movies_provider.dart';
 import 'package:movies/view_models/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -46,12 +47,32 @@ class MoviesScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return const MoviesWidget();
-        },
-      ),
+      body: Consumer(builder: (context, MoviesProvider movies, child) {
+        if (movies.isLoading && movies.movies.isEmpty) {
+          return const Center(
+            child: CircularProgressIndicator.adaptive(),
+          );
+        } else {
+          return NotificationListener<ScrollNotification>(
+            onNotification: (ScrollNotification scrollInfo) {
+              if (scrollInfo.metrics.pixels ==
+                      scrollInfo.metrics.maxScrollExtent &&
+                  !movies.isLoading) {
+                movies.getMovies();
+                return true;
+              }
+              return false;
+            },
+            child: ListView.builder(
+              itemCount: movies.movies.length,
+              itemBuilder: (context, index) {
+                return ChangeNotifierProvider.value(
+                    value: movies.movies[index], child: const MoviesWidget());
+              },
+            ),
+          );
+        }
+      }),
     );
   }
 }

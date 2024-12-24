@@ -1,13 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:movies/models/movies_genre.dart';
-
-import '../repository/movies_repo.dart';
-import '../service/init_getit.dart';
+import 'package:movies/view_models/movies_provider.dart';
+import 'package:provider/provider.dart';
 
 class GenreUtils {
-  static List<MoviesGenre> movieGenresNames(List<int> genreIds) {
-    // ignore: unused_local_variable
-    final moviesRepository = getIt<MoviesRepository>();
-    final cachedGenres = [];
+  static List<MoviesGenre> movieGenresNames(
+      List<int> genreIds, BuildContext context) {
+    final movies = Provider.of<MoviesProvider>(context, listen: false);
+
+    final cachedGenres = movies.genersList;
     List<MoviesGenre> genresNames = [];
     for (var genreId in genreIds) {
       var genre = cachedGenres.firstWhere(
