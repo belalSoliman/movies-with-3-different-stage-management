@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movies/screens/splash_screen.dart';
+import 'package:movies/view_models/fav_provider.dart';
 import 'package:movies/view_models/movies_provider.dart';
 import 'package:movies/view_models/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(
           create: (_) => MoviesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => FavProvider(),
         )
       ],
       child: Consumer<ThemeProvider>(

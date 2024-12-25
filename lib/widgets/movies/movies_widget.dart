@@ -85,9 +85,9 @@ class MoviesWidget extends StatelessWidget {
                               style: const TextStyle(color: Colors.grey),
                             ),
                             const Spacer(),
-                            const FavoriteBtnWidget(
-                                // movieModel: movieModel,
-                                )
+                            FavoriteBtnWidget(
+                              movieefav: moviess,
+                            )
                           ],
                         ),
                       ],
