@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies/constants/my_app_icons.dart';
+import 'package:mvvm_statemanagements/constants/my_app_icons.dart';
 
 class MyErrorWidget extends StatelessWidget {
   const MyErrorWidget({

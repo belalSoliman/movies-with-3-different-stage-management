@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:movies/constants/api_constants.dart';
-import 'package:movies/models/movies_genre.dart';
-import 'package:movies/models/movies_model.dart';
+import 'package:mvvm_statemanagements/constants/api_constants.dart';
+import 'package:mvvm_statemanagements/models/movies_genre.dart';
+import 'package:mvvm_statemanagements/models/movies_model.dart';
 
 class ApiService {
   Future<List<MovieModel>> fetchMovies({int page = 1}) async {

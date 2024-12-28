@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies/view_models/fav_provider.dart';
-import 'package:provider/provider.dart';
 
 import '../constants/my_app_icons.dart';
 import '../widgets/movies/movies_widget.dart';
@@ -23,18 +21,10 @@ class FavoritesScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Consumer<FavProvider>(
-        builder: (context, FavProvider fav, child) {
-          return ListView.builder(
-            itemCount: fav.movies.length,
-            itemBuilder: (context, index) {
-              final movie = fav.movies[index];
-
-              return ChangeNotifierProvider.value(
-                  value: movie,
-                  child: const MoviesWidget()); //const Text("data");
-            },
-          );
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return const MoviesWidget(); //const Text("data");
         },
       ),
     );

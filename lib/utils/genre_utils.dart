@@ -1,14 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:movies/models/movies_genre.dart';
-import 'package:movies/view_models/movies_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:mvvm_statemanagements/models/movies_genre.dart';
+
+import '../repository/movies_repo.dart';
+import '../service/init_getit.dart';
 
 class GenreUtils {
-  static List<MoviesGenre> movieGenresNames(
-      List<int> genreIds, BuildContext context) {
-    final movies = Provider.of<MoviesProvider>(context, listen: false);
-
-    final cachedGenres = movies.genersList;
+  static List<MoviesGenre> movieGenresNames(List<int> genreIds) {
+    final moviesRepository = getIt<MoviesRepository>();
+    final cachedGenres = []; //TODO: We need to get the correct cachedGenres
     List<MoviesGenre> genresNames = [];
     for (var genreId in genreIds) {
       var genre = cachedGenres.firstWhere(
