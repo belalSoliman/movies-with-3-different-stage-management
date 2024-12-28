@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_statemanagements/constants/my_app_constants.dart';
-import 'package:mvvm_statemanagements/constants/my_app_icons.dart';
-import 'package:mvvm_statemanagements/screens/movie_details.dart';
-import '../../models/movies_model.dart';
+import 'package:movies/constants/my_app_constants.dart';
+import 'package:movies/constants/my_app_icons.dart';
+import 'package:movies/screens/movie_details.dart';
 import '../../service/init_getit.dart';
 import '../../service/navigation_service.dart';
 import '../cached_image.dart';

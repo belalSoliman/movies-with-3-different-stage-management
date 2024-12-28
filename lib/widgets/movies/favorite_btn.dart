@@ -11,7 +11,7 @@ class FavoriteBtnWidget extends StatelessWidget {
       onPressed: () {
         // TODO: Implement the favorite logic
       },
-      icon: Icon(
+      icon: const Icon(
         MyAppIcons.favoriteOutlineRounded,
         color: null, // isFavorite ? Colors.red : null,
         size: 20,

@@ -1,11 +1,7 @@
-import 'package:mvvm_statemanagements/models/movies_genre.dart';
-
-import '../repository/movies_repo.dart';
-import '../service/init_getit.dart';
+import 'package:movies/models/movies_genre.dart';
 
 class GenreUtils {
   static List<MoviesGenre> movieGenresNames(List<int> genreIds) {
-    final moviesRepository = getIt<MoviesRepository>();
     final cachedGenres = []; //TODO: We need to get the correct cachedGenres
     List<MoviesGenre> genresNames = [];
     for (var genreId in genreIds) {

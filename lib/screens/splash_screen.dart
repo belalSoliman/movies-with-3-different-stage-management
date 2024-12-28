@@ -20,6 +20,7 @@ class SplashScreen extends StatelessWidget {
                 ],
               ),
             )
+          // ignore: dead_code
           : MyErrorWidget(errorText: '_errorMessage', retryFunction: () {}),
     );
   }

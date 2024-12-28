@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_statemanagements/models/movies_genre.dart';
-import 'package:mvvm_statemanagements/models/movies_model.dart';
+import 'package:movies/models/movies_genre.dart';
 
 import '../../utils/genre_utils.dart';
 
