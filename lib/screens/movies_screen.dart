@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/main.dart';
+import 'package:movies/view_models/theme/theme_bloc.dart';
 
 import '../constants/my_app_icons.dart';
 import '../service/init_getit.dart';
@@ -26,19 +29,19 @@ class MoviesScreen extends StatelessWidget {
               color: Colors.red,
             ),
           ),
-          IconButton(
-            onPressed: () async {
-              // final List<MovieModel> movies = await getIt<ApiService>().fetchMovies();
-              // log("movies $movies");
-              // final List<MoviesGenre> genres =
-              //     await getIt<MoviesRepository>().fetchGenres();
-              // await getIt<ApiService>().fetchGenres();
-
-              // log("Genres are $genres");
+          BlocBuilder<ThemeBloc, ThemeState>(
+            builder: (context, state) {
+              return IconButton(
+                onPressed: () async {
+                  context.read<ThemeBloc>().add(ToggleThemeEvent());
+                },
+                icon: Icon(
+                  state is DarkThemeState
+                      ? MyAppIcons.darkMode
+                      : MyAppIcons.light,
+                ),
+              );
             },
-            icon: const Icon(
-              MyAppIcons.darkMode,
-            ),
           ),
         ],
       ),
